@@ -2,3 +2,4 @@
 !*.dll
 !*.ide
 debug
+base/*.exe
