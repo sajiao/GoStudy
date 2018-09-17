@@ -73,6 +73,18 @@ func euler() {
 	fmt.Printf("%.3f\n", cmplx.Exp(math.Pi)+1)
 
 }
+
+func consts() {
+	const (
+		filename = "abc.txt"
+		a, b     = 3, 4
+	)
+
+	var c int
+	c = int(math.Sqrt((a*a + b*b)))
+	fmt.Println(filename, c)
+}
+
 func main() {
 	enums()
 	triangle()
@@ -81,4 +93,5 @@ func main() {
 	variableTypeDeduction()
 	variableShorter()
 	euler()
+	consts()
 }
