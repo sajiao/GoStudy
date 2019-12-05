@@ -1,6 +1,6 @@
 package config
 
-import "moqikaka.com/goutil/configUtil"
+import "github.com/sajiao/goutil/configUtil"
 
 var (
 	// 是否是DEBUG模式

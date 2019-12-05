@@ -1,10 +1,10 @@
 package config
 
 import (
-	"moqikaka.com/goutil/configUtil"
-	"moqikaka.com/goutil/logUtil"
-	"moqikaka.com/goutil/mysqlUtil"
-	"moqikaka.com/goutil/redisUtil"
+	"github.com/sajiao/goutil/configUtil"
+	"github.com/sajiao/goutil/logUtil"
+	"github.com/sajiao/goutil/mysqlUtil"
+	"github.com/sajiao/goutil/redisUtil"
 )
 
 type DbConfig struct {

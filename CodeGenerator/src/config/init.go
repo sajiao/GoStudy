@@ -1,8 +1,8 @@
 package config
 
 import (
-	"moqikaka.com/Framework/configMgr"
-	"moqikaka.com/goutil/configUtil"
+	"github.com/sajiao/Framework/configMgr"
+	"github.com/sajiao/goutil/configUtil"
 )
 
 var (
