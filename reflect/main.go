@@ -1,6 +1,9 @@
 package main
 
-import "reflect"
+import (
+	"fmt"
+	"reflect"
+)
 
 type Calculate interface {
 	Calc() int
@@ -30,7 +33,14 @@ type Operation struct {
 	b      int
 }
 
-func (this Operation) Calc() int {
-	t := reflect.f
+func (this Operation) Do() {
+	var cal = new(Calculate)
+	v := reflect.ValueOf(cal).Elem()
+	fmt.Println(v)
+}
 
+func main() {
+	var cal = new(Calculate)
+	v := reflect.ValueOf(cal).Elem()
+	fmt.Println(v)
 }

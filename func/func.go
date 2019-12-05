@@ -7,6 +7,38 @@ import (
 	"runtime"
 )
 
+type Calculate interface {
+	Do(numbers ...int) int
+}
+
+type Sum struct {
+}
+
+func (s Sum) Do(numbers ...int) int {
+	count := 0
+	for n := range numbers {
+		count += n
+	}
+	return count
+}
+
+type Div struct {
+}
+
+func (d Div) Do(numbers ...int) int {
+	if len(numbers) <= 1 {
+		panic("参数错误")
+	}
+	reslut := numbers[0]
+	for k, v := range numbers {
+		if k == 0 {
+			continue
+		}
+		reslut = reslut / v
+	}
+	return reslut
+}
+
 func eval(a, b int, op string) (int, error) {
 	switch op {
 	case "+":

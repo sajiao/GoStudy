@@ -43,4 +43,5 @@ func SliceOps() {
 	s2 = s2[:len(s2)-1]
 	fmt.Println(tail)
 	printSlice(s2)
+
 }

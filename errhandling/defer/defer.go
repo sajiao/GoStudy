@@ -17,7 +17,7 @@ func tryDefer() {
 }
 
 func writeFile(filename string) {
-	file, err := os.OpenFile(filename, os.O_EXCL|os.O_CREATE|os.O_WRONLY, 0666)
+	file, err := os.OpenFile(filename, os.O_RDWR|os.O_TRUNC, 0666)
 
 	if err != nil {
 		if pathError, ok := err.(*os.PathError); !ok {
@@ -40,5 +40,8 @@ func writeFile(filename string) {
 
 func main() {
 	//tryDefer()
-	writeFile("D:\\Go\\src\\GoStudy\\errhandling\\defer\\fib.txt")
+	goPath := os.Getenv("GOPATH")
+
+	currentPath := goPath + "\\src\\GoStudy\\errhandling\\defer\\fib.txt"
+	writeFile(currentPath)
 }

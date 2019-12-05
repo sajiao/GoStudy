@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -64,4 +66,29 @@ func main() {
 
 	fmt.Println("Channel close and range")
 	channelClose()
+
+	str := "1,"
+	arr := strings.Trim(str, ",")
+	fmt.Println(len(arr))
+
+	t := time.NewTicker(1 * time.Minute)
+	defer t.Stop()
+	for {
+		select {
+		case <-t.C:
+			fmt.Println(time.Now())
+		}
+	}
+}
+func GetSeasonId() string {
+	t1 := time.Now()
+	var month string
+	if int(t1.Month()) < 10 {
+		month = "0" + strconv.Itoa(int(t1.Month()))
+	} else {
+		month = strconv.Itoa(int(t1.Month()))
+	}
+
+	num := strconv.Itoa(t1.Year()) + month
+	return num
 }

@@ -6,7 +6,19 @@ func updateSlice(s []int) {
 	s[0] = 100
 }
 
+type Slice []int
+
+func NewSlice() Slice {
+	return make(Slice, 0)
+}
+func (s *Slice) Add(elem int) *Slice {
+	*s = append(*s, elem)
+	fmt.Print(elem)
+	return s
+}
+
 func main() {
+
 	arr := [...]int{1, 2, 3, 4, 5, 6, 7}
 
 	fmt.Println("arr[2:6] = ", arr[2:6])
@@ -47,6 +59,7 @@ func main() {
 	fmt.Println("s3,s4,s5 =", s3, s4, s5, s6)
 
 	fmt.Println("arr = ", arr)
-
-	SliceOps()
+	ss := NewSlice()
+	defer ss.Add(1).Add(2)
+	ss.Add(3)
 }

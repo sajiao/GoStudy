@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -49,9 +50,24 @@ func getCurrentPath() (string, error) {
 }
 
 func main() {
+	var appPath string
+	flag.StringVar(&appPath, "app-path", "app-path", "")
+	flag.Parse()
+	fmt.Printf("App path: %s", appPath)
+
+	for _, v := range os.Environ() { //获取全部系统环境变量 获取的是 key=val 的[]string
+		str := strings.Split(v, "=")
+		fmt.Printf("key=%s,val=%s \n", str[0], str[1])
+	}
+
+	goPath := os.Getenv("GOPATH")
+
+	currentPath := goPath + "\\src\\GoStudy\\branch\\"
+	fmt.Printf("env: %s", goPath)
+
 	path, _ := getCurrentPath()
 	fmt.Println(path)
-	const filename = "./abc.txt"
+	filename := currentPath + "/abc.txt"
 	if contents, err := ioutil.ReadFile(filename); err != nil {
 		fmt.Println(err)
 	} else {

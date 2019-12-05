@@ -88,7 +88,10 @@ func walk(maze [][]int, start, end point) [][]int {
 }
 
 func main() {
-	maze := readMaze("maze.txt")
+	goPath := os.Getenv("GOPATH")
+
+	currentPath := goPath + "\\src\\GoStudy\\maze\\" + "maze.txt"
+	maze := readMaze(currentPath)
 
 	steps := walk(maze, point{0, 0}, point{len(maze) - 1, len(maze[0]) - 1})
 	for _, row := range steps {
