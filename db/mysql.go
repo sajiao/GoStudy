@@ -58,7 +58,7 @@ type GlobalMoonvstodGuildRanks struct {
 var orm beedb.Model
 
 func init() {
-	db, err := sql.Open("mysql", "root:moqikaka3314@tcp(10.1.0.30:3314)/fcl2_crossserver?charset=utf8&parseTime=true&loc=Local&timeout=30s")
+	db, err := sql.Open("mysql", ".../fcl2_crossserver?charset=utf8&parseTime=true&loc=Local&timeout=30s")
 	if err != nil {
 		panic(err)
 	}
@@ -66,7 +66,7 @@ func init() {
 }
 
 func query() ([]*GlobalMoonvstodGuildRanks, error) {
-	db, err := sql.Open("mysql", "root:moqikaka3314@tcp(10.1.0.30:3314)/fcl2_crossserver?charset=utf8&parseTime=true&loc=Local&timeout=30s")
+	db, err := sql.Open("mysql", ".../fcl2_crossserver?charset=utf8&parseTime=true&loc=Local&timeout=30s")
 	if err != nil {
 		panic(fmt.Errorf("初始化数据库失败，错误信息为：%s", err))
 	}
