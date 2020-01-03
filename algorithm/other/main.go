@@ -2,11 +2,18 @@ package main
 
 import (
 	"fmt"
+	"unsafe"
 )
 
 var recursionMap = make(map[int]int, 50)
 
 func main() {
+	s := []int{1, 2, 3}
+	fmt.Println(s)
+	fmt.Println(&s)
+	fmt.Println(unsafe.Pointer(&s))
+	fmt.Println(unsafe.Pointer(&s))
+
 	array := []int{
 		55, 94, 87, 1, 4, 32, 11, 77, 39, 42, 64, 53, 70, 12, 9,
 	}
@@ -23,6 +30,7 @@ func main() {
 	fmt.Println("4 >> 1 =", 4>>1)
 
 	fmt.Println("4 << 1 =", 4<<3)
+
 }
 
 func stackTest() {

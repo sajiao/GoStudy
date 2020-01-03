@@ -26,6 +26,7 @@ func main() {
 			fmt.Println(v)
 		}
 	}
+	testDefer()
 }
 
 func twoSum(nums []int, target int) []int {
@@ -88,4 +89,29 @@ func single() {
 	one.Do(func() {
 		fmt.Println(runtime.NumGoroutine())
 	})
+}
+
+const (
+	x = iota
+	y
+	z = "a"
+	k
+	p = iota
+)
+
+func testDefer() {
+	defer func() {
+		if v := recover(); v != nil {
+			fmt.Printf("recover a panic,[index = %s]\n", v)
+		}
+	}()
+
+	defer func() {
+		fmt.Println("defer 2")
+		//panic("panic 2")
+	}()
+
+	fmt.Println("test defer")
+	fmt.Println(x, y, z, k, p)
+
 }
