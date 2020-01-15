@@ -1,0 +1,16 @@
+version: '2'
+
+networks:
+  basic:
+
+services:
+
+  world:
+    container_name: world
+    image: test
+    ports:
+      - "8099:80"
+    volumes:
+      - ./app/go/world:/Go/src/GoStudy/helloworld:rw
+    networks:
+      - basic
